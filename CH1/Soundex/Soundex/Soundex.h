@@ -28,11 +28,18 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
 
 class Soundex {
 public:
 	static std::string encode(const std::string& word);
 
+private:
+	static std::string encodeDigits(const std::string word);
+	static std::string encodeDigit(const char letter);
+
 public:
 	static constexpr int codeLength{ 4 };
+
+	static const std::unordered_map<char, std::string> characterEncodings;
 };

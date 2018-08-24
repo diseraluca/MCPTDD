@@ -20,10 +20,18 @@ TEST_CASE("Encode should ignore occurences of the characters [a, e, i, o, u, y, 
 	REQUIRE(Soundex::encode("NAEIHI") == "N000");
 }
 
+TEST_CASE("Encode is case insensitive") {
+	REQUIRE(Soundex::encode("PoLiKeAn") == Soundex::encode("pOLikEaN"));
+}
+
+TEST_CASE("Encode replaces consonants with digits", "[soundex][encode]") {
+	REQUIRE(Soundex::encode("KKN") == "K250");
+}
+
 TEST_CASE("The code should be of lenght four", "[soundex][encode]") {
 	CHECK(Soundex::codeLength == 4);
 
-	REQUIRE(Soundex::encode("English").length() == Soundex::codeLength);
+	REQUIRE(Soundex::encode("Pee").length() == Soundex::codeLength);
 }
 
 TEST_CASE("Code that aren't of the correct length should be padded with zeroes", "[soundex][encode]") {
