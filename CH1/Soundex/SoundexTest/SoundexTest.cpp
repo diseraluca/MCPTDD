@@ -13,27 +13,27 @@
 #include "Soundex.h"
 
 TEST_CASE("The code first letter is the same as the unencoded string's", "[soundex][encode]") {
-	REQUIRE(Soundex::encode("ABCD").front() == 'A');
+	REQUIRE(SoundexEncoder::encode("ABCD").front() == 'A');
 }
 
 TEST_CASE("Encode should ignore occurences of the characters [a, e, i, o, u, y, h, w] after the first character of the word", "[soundex][encode]") {
-	REQUIRE(Soundex::encode("NAEIHI") == "N000");
+	REQUIRE(SoundexEncoder::encode("NAEIHI") == "N000");
 }
 
-TEST_CASE("Encode is case insensitive") {
-	REQUIRE(Soundex::encode("PoLiKeAn") == Soundex::encode("pOLikEaN"));
+TEST_CASE("Encode is case insensitive", "[soundex][encode]") {
+	REQUIRE(SoundexEncoder::encode("PoLiKeAn") == SoundexEncoder::encode("pOLikEaN"));
 }
 
 TEST_CASE("Encode replaces consonants with digits", "[soundex][encode]") {
-	REQUIRE(Soundex::encode("KKN") == "K250");
+	REQUIRE(SoundexEncoder::encode("KKN") == "K250");
 }
 
 TEST_CASE("The code should be of lenght four", "[soundex][encode]") {
-	CHECK(Soundex::codeLength == 4);
+	CHECK(SoundexEncoder::codeLength == 4);
 
-	REQUIRE(Soundex::encode("Pee").length() == Soundex::codeLength);
+	REQUIRE(SoundexEncoder::encode("Pee").length() == SoundexEncoder::codeLength);
 }
 
 TEST_CASE("Code that aren't of the correct length should be padded with zeroes", "[soundex][encode]") {
-	REQUIRE(Soundex::encode("Be") == ("B000"));
+	REQUIRE(SoundexEncoder::encode("Be") == ("B000"));
 }

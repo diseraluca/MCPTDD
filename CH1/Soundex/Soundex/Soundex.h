@@ -30,7 +30,7 @@
 #include <string>
 #include <unordered_map>
 
-class Soundex {
+class SoundexEncoder {
 public:
 	static std::string encode(const std::string& word);
 
@@ -39,7 +39,7 @@ private:
 	static std::string encodeDigit(const char letter);
 
 public:
-	static constexpr int codeLength{ 4 };
+	static constexpr size_t codeLength{ 4 };
 
 	static const std::unordered_map<char, std::string> characterEncodings;
 };

@@ -5,7 +5,7 @@
 
 namespace StringUtils {
 	std::string head(const std::string& string) {
-		return std::string() + string.front();
+		return string.substr(0, 1);
 	}
 
 	std::string tail(const std::string& string) {
@@ -32,7 +32,7 @@ namespace StringUtils {
 		return lowercaseString;
 	}
 
-	std::string padToLength(const std::string & string, char paddingChar, unsigned int length)
+	std::string padToLength(const std::string & string, char paddingChar, size_t length)
 	{
 		std::string paddedWord{ string };
 		while (paddedWord.length() < length) {
@@ -42,7 +42,7 @@ namespace StringUtils {
 		return paddedWord;
 	}
 
-	std::string padWithZeroes(const std::string& string, unsigned int length) {
+	std::string padWithZeroes(const std::string& string, size_t length) {
 		return padToLength(string, '0', length);
 	}
 }
