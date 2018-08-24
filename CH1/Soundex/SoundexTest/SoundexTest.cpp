@@ -13,11 +13,15 @@
 #include "Soundex.h"
 
 TEST_CASE("TheEncodedCodeFirstLetterIsTheSameAsTheUnencodedString", "[soundex][encode]") {
-	REQUIRE(Soundex::encode("ABCD") == "A___");
+	REQUIRE(Soundex::encode("ABCD") == "A000");
 }
 
 TEST_CASE("TheEncodedCodeShouldBeOfLenghtFour", "[soundex][encode]") {
 	CHECK(Soundex::codeLength == 4);
 
 	REQUIRE(Soundex::encode("English").length() == Soundex::codeLength);
+}
+
+TEST_CASE("EncodedCodeThatAren'tOfTheCorrectLengthShouldBePaddedWithZeroes", "[soundex][encode]") {
+	REQUIRE(Soundex::encode("Be") == ("B000"));
 }
