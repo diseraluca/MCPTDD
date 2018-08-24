@@ -11,3 +11,7 @@
 
 #include "catch.hpp"
 #include "Soundex.h"
+
+TEST_CASE("TheEncodedCodeFirstLetterIsTheSameAsTheUnencodedString", "[soundex][encode]") {
+	REQUIRE(Soundex::encode("ABCD") == "A");
+}
