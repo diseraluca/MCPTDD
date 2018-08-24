@@ -16,6 +16,10 @@ TEST_CASE("TheEncodedCodeFirstLetterIsTheSameAsTheUnencodedString", "[soundex][e
 	REQUIRE(Soundex::encode("ABCD").front() == 'A');
 }
 
+TEST_CASE("EncodeShouldIgnoreOccurencesOfTheCharacters [a, e, i, o, u, y, h, w] after the first character of the word", "[soundex][encode]") {
+	REQUIRE(Soundex::encode("NAEIHI") == "N000");
+}
+
 TEST_CASE("TheEncodedCodeShouldBeOfLenghtFour", "[soundex][encode]") {
 	CHECK(Soundex::codeLength == 4);
 
