@@ -12,8 +12,8 @@
 #include "catch.hpp"
 #include "Soundex.h"
 
-TEST_CASE("The code first letter is the same as the unencoded string's", "[soundex][encode]") {
-	REQUIRE(SoundexEncoder::encode("ABCD").front() == 'A');
+TEST_CASE("The code first letter is the same as the unencoded string's with upper case", "[soundex][encode]") {
+	REQUIRE(SoundexEncoder::encode("aBCD").front() == 'A');
 }
 
 TEST_CASE("Encode should ignore occurences of the characters [a, e, i, o, u, y, h, w] after the first character of the word", "[soundex][encode]") {
@@ -34,6 +34,6 @@ TEST_CASE("The code should be of lenght four", "[soundex][encode]") {
 	REQUIRE(SoundexEncoder::encode("Pee").length() == SoundexEncoder::codeLength);
 }
 
-TEST_CASE("Code that aren't of the correct length should be padded with zeroes", "[soundex][encode]") {
+TEST_CASE("Codes that aren't of the correct length should be padded with zeroes", "[soundex][encode]") {
 	REQUIRE(SoundexEncoder::encode("Be") == ("B000"));
 }
