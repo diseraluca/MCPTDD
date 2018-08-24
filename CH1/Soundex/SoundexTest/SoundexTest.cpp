@@ -15,3 +15,7 @@
 TEST_CASE("TheEncodedCodeFirstLetterIsTheSameAsTheUnencodedString", "[soundex][encode]") {
 	REQUIRE(Soundex::encode("ABCD") == "A");
 }
+
+TEST_CASE("TheEncodedCodeShouldBeOfLenghtFour", "[soundex][encode]") {
+	REQUIRE(Soundex::encode("English").length() == 4);
+}
