@@ -17,5 +17,7 @@ TEST_CASE("TheEncodedCodeFirstLetterIsTheSameAsTheUnencodedString", "[soundex][e
 }
 
 TEST_CASE("TheEncodedCodeShouldBeOfLenghtFour", "[soundex][encode]") {
-	REQUIRE(Soundex::encode("English").length() == 4);
+	CHECK(Soundex::codeLength == 4);
+
+	REQUIRE(Soundex::encode("English").length() == Soundex::codeLength);
 }
