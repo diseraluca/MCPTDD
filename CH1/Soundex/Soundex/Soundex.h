@@ -33,9 +33,6 @@ class Soundex {
 public:
 	static std::string encode(const std::string& word);
 
-private:
-	static std::string padToLength(const std::string& word, char paddingChar, unsigned int length);
-
 public:
 	static constexpr int codeLength{ 4 };
 };
