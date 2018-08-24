@@ -12,7 +12,7 @@
 #include "catch.hpp"
 #include "Soundex.h"
 
-TEST_CASE("TheEncodedCodeFirstLetterIsTheSameAsTheUnencodedString", "[soundex][encode]") {
+TEST_CASE("The code's first letter is the same as the unencoded string's", "[soundex][encode]") {
 	REQUIRE(Soundex::encode("ABCD").front() == 'A');
 }
 
@@ -20,12 +20,12 @@ TEST_CASE("EncodeShouldIgnoreOccurencesOfTheCharacters [a, e, i, o, u, y, h, w] 
 	REQUIRE(Soundex::encode("NAEIHI") == "N000");
 }
 
-TEST_CASE("TheEncodedCodeShouldBeOfLenghtFour", "[soundex][encode]") {
+TEST_CASE("The code should be of lenght four", "[soundex][encode]") {
 	CHECK(Soundex::codeLength == 4);
 
 	REQUIRE(Soundex::encode("English").length() == Soundex::codeLength);
 }
 
-TEST_CASE("EncodedCodeThatAren'tOfTheCorrectLengthShouldBePaddedWithZeroes", "[soundex][encode]") {
+TEST_CASE("Codes that aren't of the correct length should be padded with zeroes", "[soundex][encode]") {
 	REQUIRE(Soundex::encode("Be") == ("B000"));
 }
