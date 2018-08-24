@@ -26,3 +26,10 @@
 //4. If you have too few letters in your word that you can't assign three numbers, append with zeros until there are three numbers. If you have more than 3 letters, just retain the first 3 numbers.
 
 #pragma once
+
+#include <string>
+
+class Soundex {
+public:
+	static std::string encode(const std::string& word);
+};
