@@ -13,7 +13,7 @@
 #include "Soundex.h"
 
 TEST_CASE("TheEncodedCodeFirstLetterIsTheSameAsTheUnencodedString", "[soundex][encode]") {
-	REQUIRE(Soundex::encode("ABCD") == "A");
+	REQUIRE(Soundex::encode("ABCD") == "A___");
 }
 
 TEST_CASE("TheEncodedCodeShouldBeOfLenghtFour", "[soundex][encode]") {
